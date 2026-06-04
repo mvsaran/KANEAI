@@ -1,0 +1,4 @@
+﻿TestCaseId,Title,ProjectName,FolderName,Description,Priority,Type,Preconditions,Status,AutomationStatus,CreatedBy,UpdatedBy,CreatedAt,UpdatedAt,Steps,Outcomes,JiraID,JiraURL,Tags,BDDScenarios
+TC-42,Login and Colour Validation,Mobile Testing With KaneAI,Mobile APP Testing,,Medium,,,Unverified,Not Automated,Saran Kumar,Saran Kumar,2026-06-04 14:16:59,2026-06-04 14:17:45,"1. Enter valid username and password in the login fields.
+2. Verify the color of the homepage header after login.","1. User is successfully logged in and redirected to the homepage.
+2. The header color matches the expected color defined in the design specifications.",,,,
