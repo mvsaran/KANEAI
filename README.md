@@ -1,195 +1,181 @@
 # 🤖 KaneAI — AI-Powered End-to-End Test Automation
 
-> **KaneAI** by TestMu AI (formerly LambdaTest) is the world's first GenAI-native testing agent that lets you author, manage, and execute end-to-end tests using plain English — no scripting knowledge required.
+> **KaneAI** by LambdaTest is a GenAI-native test automation platform that lets you author, execute, and validate Web and Mobile test cases using plain natural language — no scripting required.
+> This project is built as part of the **TestMu AI Certification** assessment, demonstrating AI-driven test authoring, cloud execution on HyperExecute, and full Web + Mobile automation coverage.
 
 ---
 
-## 📋 Table of Contents
+## 📌 Project Overview
 
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Test Suites](#test-suites)
-  - [Web Suite](#web-suite)
-  - [App Suite](#app-suite)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Running Tests on HyperExecute](#running-tests-on-hyperexecute)
-- [HyperExecute Job IDs](#hyperexecute-job-ids)
-- [Supported Frameworks](#supported-frameworks)
-- [Tech Stack](#tech-stack)
-- [Resources](#resources)
+This repository contains **Web and Mobile automation test suites generated using KaneAI**, covering real-world ecommerce and Android app scenarios.
 
----
+### 🎯 Objectives
 
-## Overview
-
-This repository contains test cases generated using **KaneAI** as part of the TestMu AI Certification exam. All tests were authored using natural language instructions inside KaneAI, which automatically generated the underlying test steps and executable code.
-
-KaneAI removes the barrier between intent and automation — you describe what to test, and the AI handles the rest.
+| # | Goal |
+|---|------|
+| 1 | 🧠 Demonstrate AI-driven test generation from natural language |
+| 2 | 🌐 Cover end-to-end Web automation flows |
+| 3 | 📱 Cover Android Mobile automation using Appium |
+| 4 | 🔄 Validate data-driven testing using datasets |
+| 5 | 🔗 Integrate API + UI hybrid automation |
+| 6 | ☁️ Execute reliably on HyperExecute cloud infrastructure |
+| 7 | 🗂️ Maintain a modular, scalable test structure |
 
 ---
 
-## Key Features
+## ⚡ Key Capabilities
 
-| Feature | Description |
+| 🏷️ Capability | 📋 Description |
 |---|---|
-| 🗣️ **Natural Language Authoring** | Write test instructions in plain English — no code required |
-| 🤖 **AI-Generated Test Steps** | KaneAI auto-generates detailed, executable test steps from your intent |
-| 🌐 **Cross-Platform** | Supports Web (browser) and App (Android/iOS) testing |
-| 📦 **Multi-Framework Export** | Export to Selenium, Playwright, Cypress, Appium, and more |
-| ⚡ **HyperExecute Integration** | Run tests up to 70% faster with parallel cloud execution |
-| 🔁 **Self-Healing Tests** | Auto-detects app changes and updates test scripts automatically |
-| 🧩 **CI/CD Ready** | Integrates with GitHub Actions, Jenkins, Jira, and Slack |
-| 📊 **AI Debugging** | Root cause analysis, flaky test detection, and detailed reports |
+| 🗣️ Natural Language Testing | Write test intent in plain English — KaneAI handles the rest |
+| 🤖 AI Test Generation | Automatically converts test intent into executable scripts |
+| 🌐 Web Automation | Full ecommerce UI validation flows |
+| 📱 Mobile Automation | Android app testing powered by Appium |
+| 🔗 API Testing | REST API validation embedded within UI workflows |
+| 📊 Data-Driven Testing | Dataset-based parameterized execution |
+| ☁️ Cloud Execution | Distributed test runs on HyperExecute grid |
+| 🔁 CI/CD Ready | Native GitHub Actions integration supported |
 
 ---
 
-## Test Suites
+## 🧪 Test Suites
 
-### Web Suite
+### 🌐 Web Test Suite
 
-Browser-based end-to-end tests covering core user flows on the web application.
+Covers critical ecommerce user journeys end-to-end:
 
-| Test Case ID | Test Name | Type | Status |
-|---|---|---|---|
-| TC-11 | User Registration and Login Attempt | Web | ✅ Passed |
-| TC-14 | User Registration and Login | Web | ✅ Passed |
-| TC-16 | Search and Add iPhone to Cart | Web | ✅ Passed |
-| TC-19 | User Login Verification | Web | ✅ Passed |
-| TC-22 | Execute API Call | Web | ✅ Passed |
-| TC-24 | Verify Account Dashboard and Access Wish List and Order History | Web | ✅ Passed |
-
-### App Suite
-
-Mobile application tests covering key flows on real devices via KaneAI App Testing.
-
-> *(Add your App suite test cases here once exported)*
-
-| Test Case ID | Test Name | Platform | Status |
-|---|---|---|---|
-| TC-XX | _Your app test case_ | Android / iOS | ✅ Passed |
+| # | 🧩 Test Scenario | 📝 Description |
+|---|---|---|
+| 1 | 👤 User Registration | New account creation and signup flow validation |
+| 2 | 🔐 Login & Authentication | Login verification and session checks |
+| 3 | 🛒 Product Search & Cart | iPhone search, add-to-cart, and cart validation |
+| 4 | 🏠 Account Dashboard | Dashboard rendering and component verification |
+| 5 | ❤️ Wishlist & Order History | Wishlist management and order record validation |
+| 6 | 🔗 API + UI Hybrid | REST API call validation within an active UI workflow |
 
 ---
 
-## Project Structure
+### 📱 Mobile Test Suite
+
+Covers core Android app interactions on real devices via HyperExecute:
+
+| # | 📲 Test Scenario | 📝 Description |
+|---|---|---|
+| 1 | 🚀 App Launch | Cold launch validation and home screen render check |
+| 2 | 🎨 COLOR Button Interaction | Button tap event and UI response testing |
+| 3 | 🔔 TOAST Message Validation | Toast notification trigger and content assertion |
+| 4 | 🔄 UI State Change | State transition and component update verification |
+| 5 | 📋 Device Log Validation | Execution log capture and inspection via HyperExecute |
+
+---
+
+## 📁 Project Structure
 
 ```
-kaneai-exam-suite/
+KANEAI/
 │
-├── web-suite/
-│   ├── TC-11-user-registration-login-attempt/
-│   │   └── test.java (or .py / .js)
-│   ├── TC-14-user-registration-login/
-│   ├── TC-16-search-add-iphone-to-cart/
-│   ├── TC-19-user-login-verification/
-│   ├── TC-22-execute-api-call/
-│   └── TC-24-verify-account-dashboard/
+├── 🌐 WEB Tests/                  # AI-generated web automation scripts
 │
-├── app-suite/
-│   └── TC-XX-your-app-test/
+├── 📱 Mobile Tests/               # AI-generated Android test scripts (Appium)
 │
-└── README.md
+├── 📄 CSV Exported Testcases/     # KaneAI-exported test cases in CSV format
+│
+├── 📦 APP APK FILE/               # Android APK used for mobile test execution
+│
+├── 🖼️  proverbial-home-screen.png  # Reference screenshot of the mobile app
+│
+└── 📖 README.md                   # Project documentation (this file)
 ```
 
 ---
 
-## Getting Started
+## ⚙️ Execution Workflow
 
-### Prerequisites
+How a test goes from plain English to verified results:
 
-- A [TestMu AI](https://www.testmuai.com) account
-- Access to KaneAI (available from the TestMu AI dashboard)
-- LambdaTest/TestMu AI credentials (`LT_USERNAME` and `LT_ACCESS_KEY`)
-
-### Setup
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/kaneai-exam-suite.git
-   cd kaneai-exam-suite
-   ```
-
-2. Set your credentials as environment variables:
-   ```bash
-   export LT_USERNAME="your_username"
-   export LT_ACCESS_KEY="your_access_key"
-   ```
-
-3. Install dependencies (example for Java/Maven):
-   ```bash
-   mvn clean install
-   ```
-   Or for Python:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```
+ Step 1 ── 🗣️  Author tests in KaneAI using natural language
+    │
+ Step 2 ── 🤖  AI engine auto-generates step-by-step test scripts
+    │
+ Step 3 ── 📤  Export generated tests to Web / Mobile frameworks
+    │
+ Step 4 ── 🗂️  Organize into modular suite folders
+    │
+ Step 5 ── ☁️  Execute on HyperExecute distributed cloud grid
+    │
+ Step 6 ── ✅  Validate results via dashboard logs and reports
+```
 
 ---
 
-## Running Tests on HyperExecute
+## ⚡ Running on HyperExecute
 
-These test suites are designed to run on **HyperExecute**, TestMu AI's high-speed cloud execution platform.
+Follow these steps to trigger execution on the HyperExecute cloud grid:
 
-### Steps to Execute
-
-1. Log in to [TestMu AI Test Manager](https://testmanager.testmuai.com)
-2. Navigate to your project → **Test Runs**
-3. Click **Create Test Run**
-4. Select **Type: KaneAI Generated Test Cases**
-5. Add the required test cases and set configurations:
-   - **Web**: Choose OS, Browser, Browser Version, Resolution
-   - **App**: Choose OS, Device, App build
-6. Click **Run with HyperExecute**
-7. Monitor execution from the **HyperExecute Dashboard**
+```
+1. 🔓  Open Test Manager in KaneAI
+2. 📂  Select the Web or Mobile test suite
+3. 🖥️  Configure target environment (browser version / device model)
+4. ▶️   Trigger the run on HyperExecute
+5. 📊  Monitor live execution logs on the HyperExecute dashboard
+6. 📥  Download execution artifacts (screenshots, videos, logs)
+```
 
 ---
 
-## HyperExecute Job IDs
+## 📊 HyperExecute Execution Results
 
-| Suite | Run Name | Job ID | Status |
-|---|---|---|---|
-| Web Suite | Web Test Run | `JOB-XXXXXXX` | ✅ Completed |
-| App Suite | App Test Run | `JOB-XXXXXXX` | ✅ Completed |
+| 🧩 Suite | 🆔 Job ID | 🔄 Status |
+|---|---|---|
+| 🌐 Web Suite | `REPLACE_WITH_JOB_ID` | ✅ Completed |
+| 📱 Mobile Suite | `REPLACE_WITH_JOB_ID` | ✅ Completed |
 
-> ⚠️ Replace `JOB-XXXXXXX` with your actual Job IDs from the HyperExecute dashboard.
-
----
-
-## Supported Frameworks
-
-KaneAI can export generated code to the following frameworks:
-
-- **Web**: Selenium (Java, Python, JavaScript), Playwright, Cypress
-- **Mobile**: Appium (Java, Python)
-- **API**: REST-based test runners
+> 💡 **Note:** Replace `REPLACE_WITH_JOB_ID` with your actual HyperExecute Job IDs before submission.
 
 ---
 
-## Tech Stack
+## 📬 Submission Details
 
-- **Test Authoring**: KaneAI (Natural Language → Test Steps)
-- **Test Management**: TestMu AI Test Manager
-- **Execution Platform**: HyperExecute
-- **Version Control**: GitHub (Private Repository)
-- **Certification**: TestMu AI KaneAI Certification Program
-
----
-
-## Resources
-
-- 📖 [KaneAI Documentation](https://www.testmuai.com/support/docs/getting-started-with-kane-ai/)
-- ⚡ [HyperExecute Docs](https://www.testmuai.com/support/docs/kaneai-hyperexecute-test-run-execution/)
-- 🎓 [KaneAI Certification](https://www.testmuai.com/certifications/)
-- 💬 [TestMu AI Community](https://community.lambdatest.com/)
+| 🏷️ Field | 📋 Value |
+|---|---|
+| 🔗 GitHub Repository | Private — access granted to evaluator |
+| 📧 Evaluator Access | admin@testmuaicertifications.com |
+| ☁️ Execution Platform | HyperExecute (LambdaTest Cloud) |
+| 📝 Submission Portal | TestMu AI Certification Portal |
 
 ---
 
-## 📬 Submission
+## ✅ Evaluation Checklist
 
-- **GitHub Repo**: _(this repository — private access granted to `admin@testmuaicertifications.com`)_
-- **HyperExecute Job IDs**: See [table above](#hyperexecute-job-ids)
-- **Submitted via**: TestMu AI Exam Portal
+Before final submission, verify each item below:
+
+- [x] 🌐 Web test suite authored via KaneAI
+- [x] 📱 Mobile test suite authored via KaneAI
+- [x] ☁️ Both suites executed on HyperExecute
+- [x] 📊 Execution Job IDs captured and recorded
+- [x] 📁 Repository structure clean and modular
+- [ ] 🆔 Job IDs replaced in this README
+- [ ] 🔓 Evaluator access granted to the repository
 
 ---
 
-> Built with ❤️ using KaneAI — where natural language meets test automation.
+## 🏁 Conclusion
+
+This project demonstrates a complete **AI-powered end-to-end test automation workflow** using KaneAI:
+
+- ✍️ Tests authored entirely through natural language — zero manual scripting
+- 🌐 Web automation covering critical ecommerce user journeys
+- 📱 Mobile automation on real Android devices via Appium
+- ☁️ Scalable, distributed cloud execution on HyperExecute
+- 🔗 API and UI validation in a unified hybrid workflow
+
+> 💬 *"AI doesn't replace test engineering — it removes the repetitive scripting so engineers can focus on what actually matters: coverage, quality, and confidence."*
+
+---
+
+<div align="center">
+
+Built with ❤️ using **KaneAI** · Executed on **HyperExecute** · Submitted for **TestMu AI Certification**
+
+</div>
