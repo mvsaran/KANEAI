@@ -12,6 +12,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from lambdatest_selenium_driver import smartui_snapshot
 options = webdriver.ChromeOptions()
+options.add_argument("--disable-infobars")
 driver = webdriver.Chrome(options=options)
 try:
 
@@ -37,110 +38,136 @@ try:
                     continue
         return None
 
+    class element_to_be_input_and_text(object):
+        def __call__(self, driver):
+            focused_element = driver.execute_script("return document.activeElement;")
+            if focused_element.tag_name == "input" or focused_element.tag_name == "textarea" or focused_element.get_attribute("contenteditable") == "true":
+                return focused_element
+            else:
+                return False
+
     def select_option(select_element, option):
         select = Select(select_element)
         select.select_by_value(option)
     driver.implicitly_wait(6)
 
-    # Step - 1 : Open URL https://ecommerce-playground.lambdatest.io/
+    # Step - 1 : Open https://ecommerce-playground.lambdatest.io/
     driver.get("https://ecommerce-playground.lambdatest.io/")
     driver.implicitly_wait(6)
 
-    # Step - 2 : Check LambdaTest Playground logo visibility → {{homepage_loaded}}
-    'This Instruction Is Carried Out By The Vision Model'
+    # Step - 2 : Click on the search input field with placeholder 'Search For Products'
+    element_locators = ["//div[@id='entry_217822']//div[1]/form[1]/div[1]/div[1]/div[1]/div[2]/input[1]", '#entry_217822 > div:nth-child(1) > form:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)']
+    element = get_element(driver,element_locators)
+
+    try:
+        actions.move_to_element(element).click().perform()
+    except:
+        element.click()
     driver.implicitly_wait(6)
 
-    # Step - 3 : Assert {{homepage_loaded}} equals true
-    'This Instruction Is Carried Out By The Vision Model'
+    # Step - 3 : Click on the search input field in top center with placeholder 'Search For Products'
+    element_locators = ["//div[@id='entry_217822']//div[1]/form[1]/div[1]/div[1]/div[1]/div[2]/input[1]", '#entry_217822 > div:nth-child(1) > form:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)']
+    element = get_element(driver,element_locators)
+
+    try:
+        actions.move_to_element(element).click().perform()
+    except:
+        element.click()
     driver.implicitly_wait(6)
 
-    # Step - 4 : Type iPhone in Search For Products input field
+    # Step - 4 : Type in search input field with placeholder 'Search For Products' 'iphone'
+    element_locators = ["//div[@id='entry_217822']//div[1]/form[1]/div[1]/div[1]/div[1]/div[2]/input[1]", '#entry_217822 > div:nth-child(1) > form:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)']
+    element = get_element(driver,element_locators)
+
     try:
         element.click()
     except:
         driver.execute_script("arguments[0].click();", element)
     driver.execute_script("arguments[0].value = '';", element)
     if element.get_attribute("pattern") and '[0-9]{2}' in element.get_attribute("pattern"):
-        for char in 'iPhone':
+        for char in 'iphone':
             element.send_keys(char)
     else:
-        element.send_keys('iPhone')
+        element.send_keys('iphone')
     driver.implicitly_wait(6)
 
-    # Step - 5 : Click SEARCH button
+    # Step - 5 : Click on the SEARCH button in the top right corner of the search dropdown
+    element_locators = ["//div[@id='entry_217822']//div[1]/form[1]/div[1]/div[2]/button[1]", "//button[text()='Search']", '#entry_217822 > div:nth-child(1) > form:nth-child(1) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)', "//button[contains(text(),'Search')]"]
+    element = get_element(driver,element_locators)
+
     try:
         actions.move_to_element(element).click().perform()
     except:
         element.click()
     driver.implicitly_wait(6)
 
-    # Step - 6 : Check that Search - iPhone results section is visible → {{iphone_results_visible}}
-    'This Instruction Is Carried Out By The Vision Model'
+    # Step - 6 : Hover first product in search results
+    element_locators = ["//a[@id='mz-product-grid-image-40-212469']//div[1]/div[1]/img[1]", "//a[@id='mz-product-grid-image-40-212469']//div[1]/div[1]/img[1]", '#mz-product-grid-image-40-212469 > div:nth-child(1) > div:nth-child(1) > img:nth-child(1)', '#mz-product-grid-image-40-212469 > div:nth-child(1) > div:nth-child(1) > img:nth-child(1)']
+    element = get_element(driver,element_locators)
+
+    actions.move_to_element(element).perform()
     driver.implicitly_wait(6)
 
-    # Step - 7 : Assert {{iphone_results_visible}} equals true
-    'This Instruction Is Carried Out By The Vision Model'
-    driver.implicitly_wait(6)
+    # Step - 7 : Click on the add to cart icon overlay on the first product image
+    element_locators = ["//div[@id='entry_212469']//div[1]/div[1]/div[1]/div[1]/div[2]/button[1]", '#entry_212469 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)']
+    element = get_element(driver,element_locators)
 
-    # Step - 8 : Get availability text for first iPhone product card → {{first_iphone_status}}
-    'This Instruction Is Carried Out By The Vision Model'
-    driver.implicitly_wait(6)
-
-    # Step - 9 : Get name text for first iPhone product card → {{productName}}
-    'This Instruction Is Carried Out By The Vision Model'
-    driver.implicitly_wait(6)
-
-    # Step - 10 : Get name text for first iPhone product card → {{productName_fb2cdd}}
-    'This Instruction Is Carried Out By The Vision Model'
-    driver.implicitly_wait(6)
-
-    # Step - 11 : Assert {{productName_fb2cdd}} contains iPhone
-    'This Instruction Is Carried Out By The Vision Model'
-    driver.implicitly_wait(6)
-
-    # Step - 12 : Click first iPhone product image
     try:
         actions.move_to_element(element).click().perform()
     except:
         element.click()
     driver.implicitly_wait(6)
 
-    # Step - 13 : Click Add to cart icon on first iPhone product
+    # Step - 8 : Click View Cart button in cart popup
+    element_locators = ["//a[contains(text(),'View Cart')]", '.toast > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1)', '.toast > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > a:nth-child(1)', "//div[contains(@class,'toast') and contains(@class,'fade') and contains(@class,'show')]//div[2]/div[2]/div[1]/a[1]", "//div[contains(@class,'toast') and contains(@class,'fade') and contains(@class,'show')]//div[2]/div[2]/div[1]/a[1]"]
+    element = get_element(driver,element_locators)
+
     try:
         actions.move_to_element(element).click().perform()
     except:
         element.click()
     driver.implicitly_wait(6)
 
-    # Step - 14 : Check success toast for added iPhone message → {{add_to_cart_success}}
-    'This Instruction Is Carried Out By The Vision Model'
+    # Step - 9 : Get quantity column text → {{quantity_options}}
+        html = element.get_attribute('outerHTML').replace('"', "'").replace("\n", "")
+        try:
+            print("html:", html)
+            match = re.search(fr"", html)
+        
+            result = match.group(1) if match else None
+        except Exception as e:
+            print("Regex not found in query")
+        quantity_options = result
+    
+    print("quantity_options:", quantity_options)
     driver.implicitly_wait(6)
 
-    # Step - 15 : Assert {{add_to_cart_success}} equals true
-    'This Instruction Is Carried Out By The Vision Model'
+    # Step - 10 : Read Product name text → {{product_name_text}}
+        html = element.get_attribute('outerHTML').replace('"', "'").replace("\n", "")
+        try:
+            print("html:", html)
+            match = re.search(fr"", html)
+        
+            result = match.group(1) if match else None
+        except Exception as e:
+            print("Regex not found in query")
+        product_name_text = result
+    
+    print("product_name_text:", product_name_text)
     driver.implicitly_wait(6)
 
-    # Step - 16 : Click cart icon in header
-    try:
-        actions.move_to_element(element).click().perform()
-    except:
-        element.click()
-    driver.implicitly_wait(6)
-
-    # Step - 17 : Check if cart summary panel is visible → {{cart_summary_visible}}
-    'This Instruction Is Carried Out By The Vision Model'
-    driver.implicitly_wait(6)
-
-    # Step - 18 : Assert {{cart_summary_visible}} equals true
-    'This Instruction Is Carried Out By The Vision Model'
-    driver.implicitly_wait(6)
-
-    # Step - 19 : Get cart item name text → {{cart_item_name}}
-    'This Instruction Is Carried Out By The Vision Model'
-    driver.implicitly_wait(6)
-
-    # Step - 20 : Assert {{cart_item_name}} contains iPhone
-    'This Instruction Is Carried Out By The Vision Model'
+    # Step - 11 : Assert {{product_name_text}} contains 'iPhone'
+        html = element.get_attribute('outerHTML').replace('"', "'").replace("\n", "")
+        try:
+            print("html:", html)
+            match = re.search(fr"", html)
+        
+            result = match.group(1) if match else None
+        except Exception as e:
+            print("Regex not found in query")
+        product_name_text = result
+    
+    print("product_name_text:", product_name_text)
 
     driver.quit()
 except Exception as e:
